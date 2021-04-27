@@ -1,6 +1,6 @@
 const { Pizza } = require('../models');
 
-const PizzaController = {
+const pizzaController = {
     getAllPizza(req, res) {
         Pizza.find({})
             .then(dbPizzaData => res.json(dbPizzaData))
@@ -11,7 +11,7 @@ const PizzaController = {
     },
 
     getPizzaById({ params }, res) {
-        Pizza.findone({ _id: params.id })
+        Pizza.findOne({ _id: params.id })
             .then(dbPizzaData => {
                 if (!dbPizzaData) {
                     res.status(404).json({ message: 'No Pizza Found' });
